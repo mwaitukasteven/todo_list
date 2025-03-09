@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<div class="text-center mt-5">
+    <h1>Know more about the Budget Tracker system</h1>
+    <p>This system is a simplified software for someone to manage the incomes and expenditures</p>
+    <p>where when you open the dashboard there is a place where can you add all your incomes and where you can add</p>
+    <p>all your expenses.</p>
+    <p>this system is more advantageous since it can help you to track all the history of your money</p>
+    <p>since you have added income and how you have used those incomes</p>
+    <div class="d-flex justify-content-center mt-4">
+        <p><a href="{% url 'login' %}">get started</a></p>
+    </div>
+
+        
+        
+</div>
+{% endblock %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+

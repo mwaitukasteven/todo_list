@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-light p-3" style="width: 200px;">
+        <ul class="list-unstyled">
+            <li><a href="{% url 'dashboard' %}" class="d-block py-2"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="{% url 'add_income' %}" class="d-block py-2"><i class="fas fa-money-bill"></i> Add Income</a></li>
+            <li><a href="{% url 'add_expense' %}" class="d-block py-2"><i class="fas fa-coins"></i> Add Expense</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex-grow-1 p-4">
+        <h2>Dashboard</h2>
+        <p>Welcome to your dashboard. Here is your budget summary:</p>
+
+        <!-- Summary Cards -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">Income</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Tshs {{ income|floatformat:0|intcomma }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-header">Expenses</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Tshs {{ expense|floatformat:0|intcomma }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-header">Remaining Budget</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Tshs {{ remaining_budget|floatformat:0|intcomma }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+{% endblock %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
